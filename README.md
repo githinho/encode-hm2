@@ -13,25 +13,27 @@ This repo is part of the Homework 2 for Encode Expert Solidity Bootcamp.
 Tasks:
 
 - Start a new project using the [`Hardhat template`](https://github.com/paulrberg/hardhat-template/).
-- Make a fork of mainnet from the command line. First set `ALYCHEMY_API_KEY` in `.env` and run:
+- Make a fork of mainnet from the command line. First set `ALYCHEMY_API_KEY` in `.env`, if missing copy from `.env.example`, and run:
 
 ```sh
 yarn hhnode
 ```
 
-- Query the mainnet using the command line to retrieve a property such as latest block
-  number.
+- Query the mainnet using the command line to retrieve a property such as latest block number.
+  After forking the mainnet run:
 
 ```sh
-yarn ethers
-provider.getBlockNumber()   # should output 15223963
+$ yarn ethers
+unknown> provider.getBlockNumber()
+# should output 15223963
 ```
 
 - Write a function that will delete items (one at a time) from a dynamic array without leaving gaps in the array.
   You should assume that the items to be deleted are chosen at random, and try to do this in a gas efficient manner.
   For example imagine your array has 12 items and you need to delete the items at indexes 8, 2 and 7.
-  The final array will then have items [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].
-  See contract [Array.sol](contracts/Array.sol) and [test](test/array/Array.ts)
+  The final array will then have items {0,1,3,4,5,6,9,10,11}.
+
+  For solution see contract [Array.sol](contracts/Array.sol) and function `removeIndexes`.
 
 ## Features
 

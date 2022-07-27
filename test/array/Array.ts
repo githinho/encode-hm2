@@ -4,8 +4,9 @@ import { ethers } from "hardhat";
 
 import type { Signers } from "../types";
 import {
+  shouldRemoveIndexes,
+  shouldRemoveItem,
   shouldRemoveItemAndKeepOrder,
-  shouldRemoveItemUnordered,
   shouldThrowExceptionForIndexOutOfBounds,
 } from "./Array.behavior";
 import { deployArrayFixture } from "./Array.fixture";
@@ -26,7 +27,8 @@ describe("Unit tests", function () {
       this.array = array;
     });
 
-    shouldRemoveItemUnordered();
+    shouldRemoveIndexes();
+    shouldRemoveItem();
     shouldRemoveItemAndKeepOrder();
     shouldThrowExceptionForIndexOutOfBounds();
   });

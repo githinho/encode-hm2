@@ -1,6 +1,6 @@
 import { expect } from "chai";
 
-export function shouldRemoveItemUnordered(): void {
+export function shouldRemoveItem(): void {
   it("should remove item at specified index", async function () {
     await this.array.connect(this.signers.admin).removeItem(1);
     expect(await this.array.connect(this.signers.admin).getArray()).to.deep.equal([0, 11, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -9,7 +9,6 @@ export function shouldRemoveItemUnordered(): void {
     await this.array.connect(this.signers.admin).removeItem(8);
     await this.array.connect(this.signers.admin).removeItem(2);
     await this.array.connect(this.signers.admin).removeItem(7);
-
     expect(await this.array.connect(this.signers.admin).getArray()).to.deep.equal([0, 1, 10, 3, 4, 5, 6, 9, 11]);
   });
 }
@@ -23,8 +22,14 @@ export function shouldRemoveItemAndKeepOrder(): void {
     await this.array.connect(this.signers.admin).removeItemKeepOrder(8);
     await this.array.connect(this.signers.admin).removeItemKeepOrder(2);
     await this.array.connect(this.signers.admin).removeItemKeepOrder(7);
-
     expect(await this.array.connect(this.signers.admin).getArray()).to.deep.equal([0, 1, 3, 4, 5, 6, 7, 10, 11]);
+  });
+}
+
+export function shouldRemoveIndexes(): void {
+  it("should remove indexes and keep the order", async function () {
+    await this.array.connect(this.signers.admin).removeIndexes([8, 2, 7]);
+    expect(await this.array.connect(this.signers.admin).getArray()).to.deep.equal([0, 1, 3, 4, 5, 6, 9, 10, 11]);
   });
 }
 
