@@ -84,6 +84,7 @@ const config: HardhatUserConfig = {
       forking: {
         url: "https://eth-mainnet.alchemyapi.io/v2/" + process.env.ALYCHEMY_API_KEY,
         blockNumber: 15223963,
+        enabled: process.env.ALYCHEMY_API_KEY ? true : false,
       },
     },
     arbitrum: getChainConfig("arbitrum-mainnet"),

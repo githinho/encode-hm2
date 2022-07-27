@@ -13,7 +13,7 @@ This repo is part of the Homework 2 for Encode Expert Solidity Bootcamp.
 Tasks:
 
 - Start a new project using the [`Hardhat template`](https://github.com/paulrberg/hardhat-template/).
-- Make a fork of mainnet from the command line.
+- Make a fork of mainnet from the command line. First set `ALYCHEMY_API_KEY` in `.env` and run:
 
 ```sh
 yarn hhnode
