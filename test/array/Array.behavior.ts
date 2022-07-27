@@ -30,7 +30,9 @@ export function shouldRemoveItemAndKeepOrder(): void {
 
 export function shouldThrowExceptionForIndexOutOfBounds(): void {
   it("should throw exception for index out of bounds", async function () {
-    expect(this.array.connect(this.signers.admin).removeItem(111)).to.be.revertedWith("Index out of bounds");
-    expect(this.array.connect(this.signers.admin).removeItemKeepOrder(111)).to.be.revertedWith("Index out of bounds");
+    void expect(this.array.connect(this.signers.admin).removeItem(111)).to.be.revertedWith("Index out of bounds");
+    void expect(this.array.connect(this.signers.admin).removeItemKeepOrder(111)).to.be.revertedWith(
+      "Index out of bounds",
+    );
   });
 }
